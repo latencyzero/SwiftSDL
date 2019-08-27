@@ -32,8 +32,9 @@ SDLWindow
 	init(title inTitle: String, width inWidth: Int, height inHeight: Int)
 	{
 		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), 0)
+		print("SDL window: \(self.window)")
 	}
 	
 	
-	let			window				:	SDL_Window
+	let			window				:	UnsafeMutablePointer<SDL_Window>
 }
