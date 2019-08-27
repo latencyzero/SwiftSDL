@@ -29,10 +29,10 @@ class
 SDLWindow
 {
 	public
-	init(title inTitle: String, width inWidth: Int, height inHeight: Int)
+	init(title inTitle: String, width inWidth: Int, height inHeight: Int, flags inFlags: SDLCreateWindowFlags? = nil)
 	{
 		self.isHidden = true
-		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), 0)
+		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), inFlags?.rawValue ?? 0)
 		print("SDL window: \(self.window)")
 	}
 	
