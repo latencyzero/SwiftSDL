@@ -31,15 +31,21 @@ SDLWindow
 	public
 	init(title inTitle: String, width inWidth: Int, height inHeight: Int)
 	{
-		self.isHidden = false
+		self.isHidden = true
 		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), 0)
 		print("SDL window: \(self.window)")
 	}
 	
+	public
 	var			isHidden			:	Bool
 	{
 		willSet(inNewValue)
 		{
+			if inNewValue == self.isHidden
+			{
+				return
+			}
+			
 			if inNewValue
 			{
 				SDL_HideWindow(self.window)
