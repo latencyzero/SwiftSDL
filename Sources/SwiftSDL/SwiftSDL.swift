@@ -41,6 +41,7 @@ SDLQuit()
 	SDL_Quit()
 }
 
+public
 func
 SDLDelay(ms inMilliseconds: Int)
 {
