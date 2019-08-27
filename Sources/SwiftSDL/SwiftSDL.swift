@@ -40,3 +40,9 @@ SDLQuit()
 {
 	SDL_Quit()
 }
+
+func
+SDLDelay(ms inMilliseconds: Int)
+{
+	SDL_Delay(UInt32(inMilliseconds))
+}
