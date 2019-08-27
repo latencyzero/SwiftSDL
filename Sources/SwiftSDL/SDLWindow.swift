@@ -3,6 +3,11 @@ import CSDL2
 
 
 
+enum
+SDLWindowError : Error
+{
+	case createError(String)
+}
 
 public
 struct
@@ -30,9 +35,17 @@ SDLWindow
 {
 	public
 	init(title inTitle: String, width inWidth: Int, height inHeight: Int, flags inFlags: SDLCreateWindowFlags? = nil)
+		throws
 	{
 		self.isHidden = true
-		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), inFlags?.rawValue ?? 0)
+		let w = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), inFlags?.rawValue ?? 0)
+		if w == nil
+		{
+			throw SDLWindowError.createError(SDLError())
+		}
+		
+		print("w: \(type(of:w))")
+		self.window = w!
 		print("SDL window: \(self.window)")
 	}
 	
@@ -64,5 +77,5 @@ SDLWindow
 		}
 	}
 	
-	let			window				:	UnsafeMutablePointer<SDL_Window>
+	let			window				:	OpaquePointer
 }

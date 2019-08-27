@@ -47,3 +47,10 @@ SDLDelay(ms inMilliseconds: Int)
 {
 	SDL_Delay(UInt32(inMilliseconds))
 }
+
+func
+SDLError()
+	-> String
+{
+	return String(cString: SDL_GetError())
+}
