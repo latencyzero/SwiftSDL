@@ -31,7 +31,7 @@ SDLWindow
 	public
 	init(title inTitle: String, width inWidth: Int, height inHeight: Int)
 	{
-		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, inWidth, inHeight, 0)
+		self.window = SDL_CreateWindow(inTitle, 0x1FFF0000, 0x1FFF0000, Int32(inWidth), Int32(inHeight), 0)
 	}
 	
 	
