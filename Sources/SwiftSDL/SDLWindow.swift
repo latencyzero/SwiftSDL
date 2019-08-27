@@ -37,6 +37,13 @@ SDLWindow
 	}
 	
 	public
+	func
+	updateSurface()
+	{
+		SDL_UpdateWindowSurface(self.window)
+	}
+	
+	public
 	var			isHidden			:	Bool
 	{
 		willSet(inNewValue)
